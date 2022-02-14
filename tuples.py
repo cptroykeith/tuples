@@ -26,7 +26,7 @@ print(tmp)
 c = {'a': 10, 'b':1, 'c':22}
 print( sorted( [ (v,k) for k,v in c.items() ] ))
 '''
-
+'''
 #exercises(five common words)
 fname = input('Enter file: ')
 if len(fname) < 1 : fname = 'intro.txt'
@@ -49,4 +49,31 @@ tmp = sorted(tmp, reverse=True)
 
 for v,k in tmp[:5] :
     print(k,v)
-    
+'''
+#spilt lines 
+fname = input('Enter File: ')
+if len(fname) < 1 : fname = 'intro.txt'
+hand = open(fname)
+di =dict()
+for lin in hand:
+    lin = lin.rstrip()
+   # print(lin)
+    wds = lin.split()
+   # print(wds)
+    for w in wds:
+        di[w] = di.get(w,0) + 1
+
+#print(di)
+
+#most common word
+largest = -1
+theword = None
+for k,v in di.items() :
+    if v > largest :
+        largest = v
+        theword = k
+print(theword,largest)
+
+
+
+
